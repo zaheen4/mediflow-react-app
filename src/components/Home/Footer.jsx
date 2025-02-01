@@ -1,9 +1,7 @@
-import footerLogo from "../../assets/footer_logo.svg"
-
 const Footer = () => {
   return (
     <div>
-      <footer className="footer sm:footer-horizontal footer-center bg-base-300 p-10">
+      <footer className="footer sm:footer-horizontal footer-center bg-base-300 p-10 w-full">
         <aside>
           {/* custom logo */}
           {/* <img src={footerLogo} alt="footer-logo" className="w-15 h-15" /> */}
