@@ -1,9 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../components/Context/AuthContext";
 
 const Navbar = () => {
    const { user, logout } = useContext(AuthContext);
+   const navigate = useNavigate();
+
+   const handleLogout = () => {
+      logout();
+      navigate('/login');
+   };
 
    return (
       <div className="navbar bg-base-300">
@@ -34,19 +40,30 @@ const Navbar = () => {
                      <Link to="/">Home</Link>
                   </li>
                   {user?.role === "Admin" ? (
-                     <li>
-                        <Link to="/view-equipment">View Equipment</Link>
+                     <li className="dropdown">
+                        <Link to="/view-equipment" className="dropdown-toggle">View Equipment</Link>
+                        <ul className="dropdown-menu">
+                           <li>
+                              <Link to="/add-equipment">Add Equipment</Link>
+                           </li>
+                           <li>
+                              <Link to="/modify-equipment">Modify Equipment</Link>
+                           </li>
+                           <li>
+                              <Link to="/delete-equipment">Delete Equipment</Link>
+                           </li>
+                        </ul>
                      </li>
                   ) : user?.role === "User" ? (
                      <li>
-                        <Link to="/buy-equipment">Buy Equipment</Link>
+                        <Link to="/buyequipment">Buy Equipment</Link>
                      </li>
                   ) : null}
                   <li>
                      <Link to="/pages/services">Service</Link>
                   </li>
                   <li>
-                     <Link to="/pages/about">About</Link>
+                     <Link to="/about">About</Link>
                   </li>
                </ul>
             </div>
@@ -62,19 +79,30 @@ const Navbar = () => {
                   <Link to="/">Home</Link>
                </li>
                {user?.role === "Admin" ? (
-                  <li>
-                     <Link to="/view-equipment">View Equipment</Link>
-                  </li>
+                  <li className="dropdown relative group">
+                  <Link to="/view-equipment" className="dropdown-toggle">View Equipment</Link>
+                  <ul className="dropdown-menu absolute hidden group-hover:block bg-base-100 p-2 shadow">
+                     <li>
+                        <Link to="/add-equipment">Add Equipment</Link>
+                     </li>
+                     <li>
+                        <Link to="/modify-equipment">Modify Equipment</Link>
+                     </li>
+                     <li>
+                        <Link to="/delete-equipment">Delete Equipment</Link>
+                     </li>
+                  </ul>
+               </li>
                ) : user?.role === "User" ? (
                   <li>
-                     <Link to="/buy-equipment">Buy Equipment</Link>
+                     <Link to="/buyequipment">Buy Equipment</Link>
                   </li>
                ) : null}
                <li>
                   <Link to="/pages/services">Service</Link>
                </li>
                <li>
-                  <Link to="/pages/about">About</Link>
+                  <Link to="/about">About</Link>
                </li>
             </ul>
          </div>
@@ -83,19 +111,17 @@ const Navbar = () => {
          <div className="navbar-end">
             {user ? (
                <button
-                  onClick={() => {
-                     logout();
-                  }}
+                  onClick={handleLogout}
                   className="btn btn-outline btn-error w-24"
                >
                   LOGOUT
                </button>
             ) : (
                <>
-                  <Link to="/login" className="btn mr-2 btn-outline btn-success w-24">
+                  <Link to="/login" className="btn btn-outline btn-primary mr-2 w-24">
                      LOGIN
                   </Link>
-                  <Link to="/register" className="btn mr-2 btn-outline btn-error w-24">
+                  <Link to="/register" className="btn btn-outline btn-primary mr-2 w-24">
                      REGISTER
                   </Link>
                </>
