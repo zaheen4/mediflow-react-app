@@ -34,8 +34,19 @@ const Navbar = () => {
                      <Link to="/">Home</Link>
                   </li>
                   {user?.role === "Admin" ? (
-                     <li>
-                        <Link to="/view-equipment">View Equipment</Link>
+                     <li className="dropdown">
+                        <Link to="/view-equipment" className="dropdown-toggle">View Equipment</Link>
+                        <ul className="dropdown-menu">
+                           <li>
+                              <Link to="/add-equipment">Add Equipment</Link>
+                           </li>
+                           <li>
+                              <Link to="/modify-equipment">Modify Equipment</Link>
+                           </li>
+                           <li>
+                              <Link to="/delete-equipment">Delete Equipment</Link>
+                           </li>
+                        </ul>
                      </li>
                   ) : user?.role === "User" ? (
                      <li>
@@ -62,9 +73,20 @@ const Navbar = () => {
                   <Link to="/">Home</Link>
                </li>
                {user?.role === "Admin" ? (
-                  <li>
-                     <Link to="/view-equipment">View Equipment</Link>
-                  </li>
+                  <li className="dropdown relative group">
+                  <Link to="/view-equipment" className="dropdown-toggle">View Equipment</Link>
+                  <ul className="dropdown-menu absolute hidden group-hover:block bg-base-100 p-2 shadow">
+                     <li>
+                        <Link to="/add-equipment">Add Equipment</Link>
+                     </li>
+                     <li>
+                        <Link to="/modify-equipment">Modify Equipment</Link>
+                     </li>
+                     <li>
+                        <Link to="/delete-equipment">Delete Equipment</Link>
+                     </li>
+                  </ul>
+               </li>
                ) : user?.role === "User" ? (
                   <li>
                      <Link to="/buy-equipment">Buy Equipment</Link>
