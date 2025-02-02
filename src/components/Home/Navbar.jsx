@@ -1,11 +1,18 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../components/Context/AuthContext";
+import { FaCartShopping } from "react-icons/fa6";
+
+
 
 const Navbar = () => {
    const { user, logout } = useContext(AuthContext);
    const navigate = useNavigate();
    const location = useLocation(); // Get current URL path
+
+
+
+
 
    const handleLogout = () => {
       logout();
@@ -78,6 +85,16 @@ const Navbar = () => {
 
          {/* Navbar End */}
          <div className="navbar-end">
+
+
+            {location.pathname === "/buy-equipment" && user ? (
+               <Link to="/cart" className="btn btn-outline btn-primary w-24 mr-2">
+                  <FaCartShopping /> Cart
+               </Link>
+            ) : null}
+
+
+
             {user ? (
                <button onClick={handleLogout} className="btn btn-outline btn-error w-24">
                   LOGOUT

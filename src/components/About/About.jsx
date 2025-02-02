@@ -1,5 +1,5 @@
 import React from "react";
-import "../../style.css"; // Ensure you have a separate CSS file for styling
+// import "../../style.css"; // Ensure you have a separate CSS file for styling
 
 
 import zaheen from "../../assets/images/zaheen.jpg";

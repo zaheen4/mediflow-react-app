@@ -12,6 +12,7 @@ import BuyEquipment from "../components/Equipment/BuyEquipment";
 import AdminPage from "../components/Equipment/AdminPage";
 import About from "../components/About/About";
 import Services from "../components/About/Services";
+import Cart from "../components/Cart/Cart";
 
 export const router = createBrowserRouter([
    {
@@ -42,6 +43,11 @@ export const router = createBrowserRouter([
          },
 
          {
+            path: "/cart",
+            element: <Cart />,
+         },
+
+         {
             path: "/admin-dashboard",
             element: <AdminPage />,
          },
@@ -55,6 +61,8 @@ export const router = createBrowserRouter([
             path: "/services",
             element: <Services />,
          },
+
+
 
 
 
