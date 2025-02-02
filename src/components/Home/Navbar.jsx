@@ -1,20 +1,50 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../components/Context/AuthContext";
 
 const Navbar = () => {
    const { user, logout } = useContext(AuthContext);
    const navigate = useNavigate();
+   const location = useLocation(); // Get current URL path
 
    const handleLogout = () => {
       logout();
-      navigate('/login');
+      navigate("/login");
    };
+
+   // Function to check if a menu item is active
+   const isActive = (path) =>
+      location.pathname === path ? "btn btn-error text-white" : "btn btn-ghost";
+
+   // Common menu structure
+   const renderMenuItems = () => (
+      <>
+         <li>
+            <Link to="/" className={isActive("/")}>Home</Link>
+         </li>
+         {user?.role === "Admin" ? (
+            <li>
+               <Link to="/admin-dashboard" className={isActive("/admin-dashboard")}>Admin Dashboard</Link>
+            </li>
+         ) : user?.role === "User" ? (
+            <li>
+               <Link to="/buy-equipment" className={isActive("/buy-equipment")}>Buy Equipment</Link>
+            </li>
+         ) : null}
+         <li>
+            <Link to="/services" className={isActive("/services")}>Service</Link>
+         </li>
+         <li>
+            <Link to="/about" className={isActive("/about")}>About</Link>
+         </li>
+      </>
+   );
 
    return (
       <div className="navbar bg-base-300">
          {/* Navbar Start */}
          <div className="navbar-start">
+            {/* Mobile Dropdown */}
             <div className="dropdown">
                <button tabIndex={0} className="btn btn-ghost lg:hidden">
                   <svg
@@ -32,39 +62,8 @@ const Navbar = () => {
                      />
                   </svg>
                </button>
-               <ul
-                  tabIndex={0}
-                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-               >
-                  <li>
-                     <Link to="/">Home</Link>
-                  </li>
-                  {user?.role === "Admin" ? (
-                     <li className="dropdown">
-                        <Link to="/view-equipment" className="dropdown-toggle">View Equipment</Link>
-                        <ul className="dropdown-menu">
-                           <li>
-                              <Link to="/add-equipment">Add Equipment</Link>
-                           </li>
-                           <li>
-                              <Link to="/modify-equipment">Modify Equipment</Link>
-                           </li>
-                           <li>
-                              <Link to="/delete-equipment">Delete Equipment</Link>
-                           </li>
-                        </ul>
-                     </li>
-                  ) : user?.role === "User" ? (
-                     <li>
-                        <Link to="/buyequipment">Buy Equipment</Link>
-                     </li>
-                  ) : null}
-                  <li>
-                     <Link to="/pages/services">Service</Link>
-                  </li>
-                  <li>
-                     <Link to="/about">About</Link>
-                  </li>
+               <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                  {renderMenuItems()}
                </ul>
             </div>
             <Link to="/" className="btn btn-ghost text-xl">
@@ -74,46 +73,13 @@ const Navbar = () => {
 
          {/* Navbar Center */}
          <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">
-               <li>
-                  <Link to="/">Home</Link>
-               </li>
-               {user?.role === "Admin" ? (
-                  <li className="dropdown relative group">
-                  <Link to="/view-equipment" className="dropdown-toggle">View Equipment</Link>
-                  <ul className="dropdown-menu absolute hidden group-hover:block bg-base-100 p-2 shadow">
-                     <li>
-                        <Link to="/add-equipment">Add Equipment</Link>
-                     </li>
-                     <li>
-                        <Link to="/modify-equipment">Modify Equipment</Link>
-                     </li>
-                     <li>
-                        <Link to="/delete-equipment">Delete Equipment</Link>
-                     </li>
-                  </ul>
-               </li>
-               ) : user?.role === "User" ? (
-                  <li>
-                     <Link to="/buyequipment">Buy Equipment</Link>
-                  </li>
-               ) : null}
-               <li>
-                  <Link to="/pages/services">Service</Link>
-               </li>
-               <li>
-                  <Link to="/about">About</Link>
-               </li>
-            </ul>
+            <ul className="menu menu-horizontal px-1">{renderMenuItems()}</ul>
          </div>
 
          {/* Navbar End */}
          <div className="navbar-end">
             {user ? (
-               <button
-                  onClick={handleLogout}
-                  className="btn btn-outline btn-error w-24"
-               >
+               <button onClick={handleLogout} className="btn btn-outline btn-error w-24">
                   LOGOUT
                </button>
             ) : (
