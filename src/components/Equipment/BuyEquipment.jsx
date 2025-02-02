@@ -3,9 +3,11 @@ import axios from 'axios';
 import bdt_icon from "../../assets/bdt_icon.svg";
 import bdt_icon2 from "../../assets/bdt_icon2.svg";
 
+
 const BuyEquipment = () => {
 
    const [equipment, setEquipment] = useState([]);
+   
 
    useEffect(() => {
       axios.get('http://localhost:5000/equipment')
@@ -17,9 +19,9 @@ const BuyEquipment = () => {
          });
    }, []);
 
-   // console.log(equipment);
 
 
+   
    return (
       <div>
 
@@ -34,10 +36,12 @@ const BuyEquipment = () => {
                   <div className="card-body">
                      <h2 className="card-title">{equip.name}</h2>
                      <p>{equip.description}</p>
-                     
+
                      <p className='pt-4 text-[16px] flex items-center' ><img src={bdt_icon2} alt="bdt_icon" className='size-5' /> {equip.price}</p>
                      <div className="card-actions justify-end">
-                        <button className="btn btn-error ">Add to cart</button>
+                        <button className="btn btn-error">
+                           Add to cart
+                        </button>
                      </div>
                   </div>
                </div>
