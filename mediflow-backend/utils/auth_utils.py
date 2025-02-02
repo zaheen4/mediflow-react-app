@@ -16,12 +16,16 @@ def generate_token(user_id, role):
 def verify_token():
     token = request.headers.get("Authorization")
     if not token or not token.startswith("Bearer "):
+        print("No valid token provided")  # Debugging
         return None
 
     try:
         decoded_token = jwt.decode(token.split(" ")[1], SECRET_KEY, algorithms=["HS256"])
-        return decoded_token
+        return decoded_token  # Return decoded token if valid
     except jwt.ExpiredSignatureError:
+        print("Token expired")  # Debugging
         return None
     except jwt.InvalidTokenError:
-        return None
+        print("Invalid token")  # Debugging
+        return None 
+

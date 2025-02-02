@@ -8,8 +8,10 @@ import Login from "../components/Login/Login";
 import WelcomePage from "../components/Home/WelcomePage";
 import DummyPage from "../components/Dummy/DummyPage";
 import Register from "../components/Register/Regsiter";
-import BuyEquipment from "../components/Euipment/BuyEquipment";
+import BuyEquipment from "../components/Equipment/BuyEquipment";
+import AdminPage from "../components/Equipment/AdminPage";
 import About from "../components/About/About";
+import Services from "../components/About/Services";
 
 export const router = createBrowserRouter([
    {
@@ -31,17 +33,27 @@ export const router = createBrowserRouter([
          },
 
          {
-            path: "/dummypage",
+            path: "/dummy-page",
             element: <DummyPage />,
          },
          {
-            path: "/buyequipment",
-            element: <BuyEquipment/>,
+            path: "/buy-equipment",
+            element: <BuyEquipment />,
+         },
+
+         {
+            path: "/admin-dashboard",
+            element: <AdminPage />,
          },
 
          {
             path: "/about",
-            element: <About/>,
+            element: <About />,
+         },
+
+         {
+            path: "/services",
+            element: <Services />,
          },
 
 

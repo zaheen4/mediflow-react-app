@@ -23,10 +23,19 @@ const Login = () => {
 
          if (response.ok) {
             login(data); // Store user info in AuthContext
-            navigate("/dummypage"); // Redirect to dummy page
+
+            // Redirect based on user role
+            if (data.role === "Admin") {
+               navigate("/admin-dashboard");
+            } else if (data.role === "User") {
+               navigate("/");
+            } else {
+               navigate("/"); // Default redirection
+            }
          } else {
             setError(data.error || "Login failed");
          }
+
       } catch {
          setError("Network error");
       }
