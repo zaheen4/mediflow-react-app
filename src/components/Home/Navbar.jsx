@@ -102,11 +102,11 @@ const Navbar = () => {
 
          {/* Navbar End */}
          <div className="navbar-end">
-            {location.pathname === "/buy-equipment" && user ? (
+            {/* {location.pathname === "/buy-equipment" && user ? (
                <div className="btn btn-outline btn-primary w-24 mr-2">
                   <FaCartShopping /> Cart
                </div>
-            ) : null}
+            ) : null} */}
 
             {user ? (
                <div className="dropdown dropdown-end mr-2">
