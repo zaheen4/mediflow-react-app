@@ -5,12 +5,15 @@ import { FaEdit, FaTrash, FaPlus } from "react-icons/fa";
 const AdminPage = () => {
    const [equipment, setEquipment] = useState([]);
    const [editing, setEditing] = useState(null);
+
    const [newEquipment, setNewEquipment] = useState({
       name: "",
       description: "",
       price: "",
       quantity: "",
+      image_url: "",
    });
+
 
    const token = JSON.parse(localStorage.getItem("user"))?.token;
 
@@ -77,12 +80,13 @@ const AdminPage = () => {
             <table className="table-auto w-[85%]  border-collapse">
                <thead>
                   <tr className="bg-gray-300 border border-gray-300">
-                     <th className="p-2">ID</th>
-                     <th className="p-2 w-62">Name</th>
-                     <th className="p-2 ">Description</th>
-                     <th className="p-2 w-40">Price (BDT)</th>
-                     <th className="p-2 w-26">Quantity</th>
-                     <th className="p-2">Actions</th>
+                     <th className="p-2 w-[5%]">ID</th>
+                     <th className="p-2 w-[20%]">Name</th>
+                     <th className="p-2 w-[35%]">Description</th>
+                     <th className="p-2 w-[10%]">Price (BDT)</th>
+                     <th className="p-2 w-[10%]">Quantity</th>
+                     <th className="p-2 w-[10%]">ImageURL</th>
+                     <th className="p-2 w-[10%]">Actions</th>
                   </tr>
                </thead>
                <tbody>
@@ -141,6 +145,18 @@ const AdminPage = () => {
                               equip.quantity
                            )}
                         </td>
+                        <td className="p-2">
+                           {editing?.equipment_id === equip.equipment_id ? (
+                              <input
+                                 type="text"
+                                 value={editing.image_url}
+                                 onChange={(e) => setEditing({ ...editing, image_url: e.target.value })}
+                                 className="border rounded p-1 w-full"
+                              />
+                           ) : (
+                              <img src={equip.image_url} alt={equip.name} className="w-16 h-16 object-cover rounded-lg" />
+                           )}
+                        </td>
                         <td className="p-2 flex justify-center gap-2">
                            {editing?.equipment_id === equip.equipment_id ? (
                               <button
@@ -188,6 +204,7 @@ const AdminPage = () => {
                      <td className="p-2">
                         <input
                            type="number"
+                           
                            value={newEquipment.price}
                            onChange={(e) => setNewEquipment({ ...newEquipment, price: e.target.value })}
                            placeholder="Price"
@@ -200,6 +217,15 @@ const AdminPage = () => {
                            value={newEquipment.quantity}
                            onChange={(e) => setNewEquipment({ ...newEquipment, quantity: e.target.value })}
                            placeholder="Quantity"
+                           className="border rounded p-1 w-full"
+                        />
+                     </td>
+                     <td className="p-2">
+                        <input
+                           type="text"
+                           value={newEquipment.image_url}
+                           onChange={(e) => setNewEquipment({ ...newEquipment, image_url: e.target.value })}
+                           placeholder="Image URL"
                            className="border rounded p-1 w-full"
                         />
                      </td>

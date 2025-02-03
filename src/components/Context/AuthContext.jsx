@@ -12,13 +12,13 @@ const AuthProvider = ({ children }) => {
       const storedUser = localStorage.getItem("user");
       if (storedUser) {
          const parsedUser = JSON.parse(storedUser);
-         setUser({ role: parsedUser.role, token: parsedUser.token });
+         setUser({ role: parsedUser.role, token: parsedUser.token, username: parsedUser.username });
       }
    }, []);
 
    const login = (userData) => {
       localStorage.setItem("user", JSON.stringify(userData));
-      setUser({ role: userData.role, token: userData.token });
+      setUser({ role: userData.role, token: userData.token, username: userData.username});
    };
 
    const logout = () => {
