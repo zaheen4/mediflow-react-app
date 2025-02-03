@@ -38,7 +38,7 @@ const Cart = () => {
          <div className="grid grid-cols-1 gap-6 w-[85%] mx-auto">
             {cart.map((item) => (
                <div key={item.equipment_id} className="card flex flex-row bg-[#ffffff] shadow-md p-4">
-                  <figure className="w-24 h-24 bg-gray-100 flex items-center justify-center">
+                  <figure className="w-24 h-24 bg-gray-100 flex items-center justify-center mr-4">
                      <img className="w-full h-full object-cover" src={item.image_url} alt={item.name} />
                   </figure>
                   <div className="ml-4 flex-1">
@@ -53,7 +53,7 @@ const Cart = () => {
                            onChange={(e) => updateQuantity(item.equipment_id, parseInt(e.target.value))}
                            min="1"
                         />
-                        <button className="text-red-600 ml-2" onClick={() => removeItem(item.equipment_id)}>
+                        <button className="text-red-600 ml-4" onClick={() => removeItem(item.equipment_id)}>
                            <FaTrash />
                         </button>
                      </div>
@@ -65,7 +65,7 @@ const Cart = () => {
          {/* Floating Checkout Button */}
          {cart.length > 0 && (
             <button
-               className="fixed bottom-18 right-20 bg-green-600 text-white p-4 rounded-full shadow-lg"
+               className="fixed bottom-18 right-20 bg-red-500 text-white p-4 rounded-full shadow-lg font-bold"
                onClick={handleCheckout}
             >
                Checkout ({totalPrice} BDT)

@@ -13,14 +13,14 @@ const About = () => {
    return (
       <div className="inter_font">
 
-         <div className="w-[70%] mx-auto p-10 my-10 ">
-            <section className="display_flex my-10">
-               <div className="section_title">
-                  <h6 className="zero_margin text-4xl">
+         <div className="w-[70%] mx-auto p-10 ">
+            <section className="flex my-10">
+               <div className="section_title w-[60%]">
+                  <h6 className=" zero_margin text-5xl">
                      MediFlow offers you the best medical equipment and treatment for your life.
                   </h6>
                </div>
-               <div className="little_style">
+               <div className="little_style pt-18 w-[45%] text-lg">
                   <h3>
                      Our team has only one goal: to create an environment where medical equipment is within everyone’s reach.
                      "Every single one of us deserves access to quality, affordable health care."
@@ -38,8 +38,8 @@ const About = () => {
          <section className="team_container">
 
             <div className="text-center my-8">
-               <h2 className="section_title">Meet Our Team</h2>
-               <p className="section_description">
+               <h2 className="section_title text-4xl pb-2">Meet Our Team</h2>
+               <p className="section_description text-xl">
                   We believe treatment should be accessible to everyone, everywhere, regardless of income and class.
                </p>
             </div>
@@ -47,7 +47,7 @@ const About = () => {
                {/* <div className="team_content">
                </div> */}
 
-               <div className="mb-20 w-[70%] grid grid-cols-2 gap-4 bg-base-300 px-32 py-26 rounded-2xl">
+               <div className="mb-20 w-[60%] grid grid-cols-2 gap-4 bg-base-300 px-28 py-16 rounded-2xl">
                   {[
                      { name: "Fatin Hasan", id: "CS-2203094", image: fatin },
                      { name: "Mir Zaheen Waseet", id: "CS-2203104", image: zaheen },

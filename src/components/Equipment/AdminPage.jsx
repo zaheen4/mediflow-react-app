@@ -75,11 +75,11 @@ const AdminPage = () => {
 
    return (
       <div className="container mx-auto p-6">
-         <h2 className="text-2xl font-bold mb-4 ml-24 ">Admin Dashboard - Equipment List</h2>
-         <div className="overflow-x-auto mx-auto flex justify-center">
-            <table className="table-auto w-[85%]  border-collapse">
+         <h2 className="text-2xl font-bold my-4 ml-28 ">Admin Dashboard - Equipment List</h2>
+         <div className="overflow-x-auto mx-auto flex justify-center rounded">
+            <table className="table-auto w-[85%]  border-collapse bg-white ">
                <thead>
-                  <tr className="bg-gray-300 border border-gray-300">
+                  <tr className="bg-gray-300 border border-gray-300 ">
                      <th className="p-2 w-[5%]">ID</th>
                      <th className="p-2 w-[20%]">Name</th>
                      <th className="p-2 w-[35%]">Description</th>

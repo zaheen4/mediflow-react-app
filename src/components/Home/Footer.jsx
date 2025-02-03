@@ -5,8 +5,8 @@ import github_icon from "../../assets/footericons/github_icon.svg"
 const Footer = () => {
   return (
     <div>
-      <footer className="footer sm:footer-horizontal footer-center bg-base-300 p-10 w-full">
-        <aside>
+      <footer className="footer sm:footer-horizontal footer-center bg-gray-100 p-10 w-full">
+        <aside >
           {/* custom logo */}
           {/* <img src={footerLogo} alt="footer-logo" className="w-15 h-15" /> */}
 
@@ -20,7 +20,7 @@ const Footer = () => {
 
         </aside>
         <nav>
-          <div className="grid grid-flow-col gap-4">
+          <div className="grid grid-flow-col gap-10">
             <a>
               <img src={twitter_icon} alt="twitter" />
             </a>

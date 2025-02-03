@@ -1,4 +1,5 @@
 // src/components/Register.jsx
+import login_image2 from "../../assets/luke-chesser-CxBx_J3yp9g-unsplash.jpg"
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -77,18 +78,20 @@ const Register = () => {
    };
 
    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-100">
-         <div className="max-w-sm w-full p-8 bg-white shadow-md rounded-lg">
+      <div className="hero min-h-screen items-center">
+         <img  src={login_image2} alt="" className="h-[860px] w-[100%] "/>
+         
+         <div className="max-w-sm w-full p-8 text-white shadow-[0_0_60px_rgba(0,0,0,0.3)] rounded-lg">
             <h2 className="text-2xl font-bold text-center mb-6">Register</h2>
             {errorMessage && (
-               <div className="text-red-500 text-center mb-4">{errorMessage}</div>
+               <div className="text-yellow-400 text-center mb-4">{errorMessage}</div>
             )}
             {successMessage && (
-               <div className="text-green-500 text-center mb-4">{successMessage}</div>
+               <div className="text-green-400 text-center mb-4">{successMessage}</div>
             )}
             <form onSubmit={handleSubmit}>
                <div className="mb-4">
-                  <label htmlFor="username" className="block text-sm font-semibold text-gray-700">Username</label>
+                  <label htmlFor="username" className="block text-sm font-semibold text-white ">Username</label>
                   <input
                      type="text"
                      id="username"
@@ -96,11 +99,11 @@ const Register = () => {
                      value={formData.username}
                      onChange={handleChange}
                      required
-                     className="w-full mt-2 p-2 border border-gray-300 rounded-md"
+                     className="w-full mt-2 p-2 border-none rounded-md text-black bg-white"
                   />
                </div>
                <div className="mb-4">
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-700">Email</label>
+                  <label htmlFor="email" className="block text-sm font-semibold text-white">Email</label>
                   <input
                      type="email"
                      id="email"
@@ -108,11 +111,11 @@ const Register = () => {
                      value={formData.email}
                      onChange={handleChange}
                      required
-                     className="w-full mt-2 p-2 border border-gray-300 rounded-md"
+                     className="w-full mt-2 p-2 border-none rounded-md text-black bg-white"
                   />
                </div>
                <div className="mb-4">
-                  <label htmlFor="password" className="block text-sm font-semibold text-gray-700">Password</label>
+                  <label htmlFor="password" className="block text-sm font-semibold text-white">Password</label>
                   <input
                      type="password"
                      id="password"
@@ -120,18 +123,18 @@ const Register = () => {
                      value={formData.password}
                      onChange={handleChange}
                      required
-                     className="w-full mt-2 p-2 border border-gray-300 rounded-md"
+                     className="w-full mt-2 p-2 border-none rounded-md text-black bg-white"
                   />
                </div>
                <div className="mb-4">
-                  <label htmlFor="role" className="block text-sm font-semibold text-gray-700">Role</label>
+                  <label htmlFor="role" className="block text-sm font-semibold text-white">Role</label>
                   <select
                      id="role"
                      name="role"
                      value={formData.role}
                      onChange={handleChange}
                      required
-                     className="w-full mt-2 p-2 border border-gray-300 rounded-md"
+                     className="w-full mt-2 p-2 border-none rounded-md text-black bg-white"
                   >
                      <option value="User">User</option>
                      <option value="Admin">Admin</option>
@@ -140,7 +143,7 @@ const Register = () => {
                <div className="flex justify-center">
                   <button
                      type="submit"
-                     className="w-full bg-red-500 text-white p-2 rounded-md hover:bg-red-600"
+                     className="w-full bg-[#fc432d] text-white p-2 rounded-md hover:bg-[#e5004b] shadow-"
                   >
                      Register
                   </button>

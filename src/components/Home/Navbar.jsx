@@ -1,6 +1,6 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "../../components/Context/AuthContext";
+import { AuthContext } from "../Context/AuthContext";
 import { FaCartShopping } from "react-icons/fa6";
 import { toast, ToastContainer } from "react-toastify";
 import user_icon from "../../assets/user_icon.svg"
@@ -143,10 +143,10 @@ const Navbar = () => {
                </div>
             ) : (
                <>
-                  <Link to="/login" className="btn btn-outline btn-primary mr-2 w-24">
+                  <Link to="/login" className="btn btn-outline  hover:bg-[#ff7537] hover:text-black hover:border-none mr-2 w-24">
                      LOGIN
                   </Link>
-                  <Link to="/register" className="btn btn-outline btn-primary mr-2 w-24">
+                  <Link to="/register" className="btn btn-outline  bg hover:bg-[#fbce4b] hover:text-black hover:border-none  mr-2 w-24">
                      REGISTER
                   </Link>
                </>
