@@ -26,22 +26,22 @@ const Navbar = () => {
    // Common menu structure
    const renderMenuItems = () => (
       <>
-         <li>
+         <li className="w-20">
             <Link to="/" className={isActive("/")}>Home</Link>
          </li>
          {user?.role === "Admin" ? (
-            <li>
+            <li className="w-20">
                <Link to="/admin-dashboard" className={isActive("/admin-dashboard")}>Admin Dashboard</Link>
             </li>
          ) : user?.role === "User" ? (
-            <li>
-               <Link to="/buy-equipment" className={isActive("/buy-equipment")}>Buy Equipment</Link>
+            <li className="w-20">
+               <Link to="/buy-equipment" className={isActive("/buy-equipment")}>Shop</Link>
             </li>
          ) : null}
-         <li>
+         <li className="w-20">
             <Link to="/services" className={isActive("/services")}>Service</Link>
          </li>
-         <li>
+         <li className="w-20">
             <Link to="/about" className={isActive("/about")}>About</Link>
          </li>
       </>
