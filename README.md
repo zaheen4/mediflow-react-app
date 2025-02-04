@@ -41,7 +41,7 @@ npm install
 ### 3. Set Up Backend Environment and Install Dependencies
 Navigate to the backend folder (`mediflow-backend`), create a virtual environment, and install Python dependencies:
 ```sh
-cd ../mediflow-backend
+cd ./mediflow-backend
 python -m venv mediflowenv
 source mediflowenv/bin/activate  # On Windows use: mediflowenv\Scripts\activate
 pip install -r requirements.txt
