@@ -87,16 +87,14 @@ This will replace the existing `SECRET_KEY` in the `.env` file with a new secure
 ## Running the Application
 
 ### 1. Start the Backend
-Navigate to the backend folder and run:
+Navigate to the backend folder `mediflow-backend` and run: (must be in the terminal of activated Python Environment, if not please acticate the environment again)
 ```sh
-cd mediflow-backend
 python app.py
 ```
 
 ### 2. Start the Frontend (in a new Terminal)
-Navigate to the project root directory and run:
+Navigate to the project root directory(cloned folder) and run:
 ```sh
-cd <cloned-repo-directory>
 npm run dev
 ```
 
