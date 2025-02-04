@@ -9,7 +9,7 @@ const Home = () => {
       <div>
          <Navbar></Navbar>
 
-         <div className="mx-auto bg-[#ffcece]">
+         <div className="mx-auto">
             {/* <img src={welcome_bg} alt="" className="h-[720px] object-cover" /> */}
             <Outlet></Outlet>
          </div>

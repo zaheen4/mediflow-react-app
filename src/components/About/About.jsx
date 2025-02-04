@@ -3,9 +3,9 @@ import React from "react";
 
 
 import zaheen from "../../assets/images/zaheen.jpg";
-import sahil from "../../assets/images/sahil.jpg";
+import sahil from "../../assets/images/sahil2.jpeg";
 import arafath from "../../assets/images/arafath.jpg";
-import fatin from "../../assets/images/fatin.jpg";
+import fatin from "../../assets/images/fatin2.jpeg";
 import healthtech from "../../assets/images/healthtech.jpg";
 
 

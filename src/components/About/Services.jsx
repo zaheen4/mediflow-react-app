@@ -18,11 +18,11 @@ const Services = () => {
         {/* Service Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div key={index} className="bg-[#ffffff] p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
               <div className="text-center">
                 <img src={service.image} alt={service.title} className="mx-auto mb-4 size-16" />
                 <h2 className="text-xl font-semibold text-gray-800 mb-2">{service.title}</h2>
-                <p className="text-gray-600 mb-4">{service.description}</p>
+                <p className="text-gray-800 mb-4">{service.description}</p>
                 <a href={service.link} className="text-red-500 hover:text-red-600 font-semibold">Learn More →</a>
               </div>
             </div>
@@ -37,7 +37,7 @@ const Services = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-md ">
-                <p className="text-gray-600 mb-4">"{testimonial.text}"</p>
+                <p className="text-gray-700 mb-4">"{testimonial.text}"</p>
                 <p className="text-gray-800 font-semibold">— {testimonial.author}</p>
               </div>
             ))}

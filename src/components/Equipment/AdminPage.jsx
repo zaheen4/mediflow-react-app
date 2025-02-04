@@ -119,7 +119,7 @@ const AdminPage = () => {
                               equip.description
                            )}
                         </td>
-                        <td className="p-2">
+                        <td className="p-2 ">
                            {editing?.equipment_id === equip.equipment_id ? (
                               <input
                                  type="number"
@@ -131,7 +131,7 @@ const AdminPage = () => {
                               equip.price
                            )}
                         </td>
-                        <td className="p-2">
+                        <td className="p-2 text-center">
                            {editing?.equipment_id === equip.equipment_id ? (
                               <input
                                  type="number"
@@ -144,8 +144,8 @@ const AdminPage = () => {
                            ) : (
                               equip.quantity
                            )}
-                        </td>
-                        <td className="p-2">
+                        </td> 
+                        <td className="p-2 ">
                            {editing?.equipment_id === equip.equipment_id ? (
                               <input
                                  type="text"
@@ -154,7 +154,7 @@ const AdminPage = () => {
                                  className="border rounded p-1 w-full"
                               />
                            ) : (
-                              <img src={equip.image_url} alt={equip.name} className="w-16 h-16 object-cover rounded-lg" />
+                              <img src={equip.image_url} alt={equip.name} className="w-16 h-16 object-cover rounded-lg mx-auto" />
                            )}
                         </td>
                         <td className="p-2 flex justify-center gap-2">

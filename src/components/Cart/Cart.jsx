@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { FaTrash } from "react-icons/fa";
 import React, { useState, useEffect } from 'react';
+import { FaBuyNLarge } from 'react-icons/fa6';
 
 const Cart = () => {
    const navigate = useNavigate();
@@ -33,8 +34,8 @@ const Cart = () => {
    const totalPrice = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
 
    return (
-      <div className="container mx-auto p-6">
-         <h2 className="text-2xl font-bold mb-4 ml-25">Shopping Cart</h2>
+      <div className="container mx-auto p-6 min-h-screen">
+         <h2 className="text-3xl font-bold text-center mb-3">Shopping Cart</h2>
          <div className="grid grid-cols-1 gap-6 w-[85%] mx-auto">
             {cart.map((item) => (
                <div key={item.equipment_id} className="card flex flex-row bg-[#ffffff] shadow-md p-4">
@@ -68,7 +69,7 @@ const Cart = () => {
                className="fixed bottom-18 right-20 bg-red-500 text-white p-4 rounded-full shadow-lg font-bold"
                onClick={handleCheckout}
             >
-               Checkout ({totalPrice} BDT)
+               Checkout: {totalPrice.toFixed(2)} BDT 
             </button>
          )}
       </div>

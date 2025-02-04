@@ -4,7 +4,7 @@ const WelcomePage = () => {
       <div className="hero bg-base-300 ">
          <img src={welcome_bg} alt="" className="h-[720px] object-cover" />
          <section className=" hero-content flex mt-40 justify-center">
-            <div className="text-center py-12 w-[65%] mx-auto rounded-3xl shadow-[0_0_20px_rgba(0,0,0,0.2)] bg-base-40 mb-40">
+            <div className="text-center py-12 w-[65%] mx-auto rounded-3xl shadow-[0_0_20px_rgba(0,0,0,0.2)] bg-base-200 mb-40">
                {/* Inner Text Container */}
                <div className="w-[85%] mx-auto">
                   <h1 className="text-5xl font-bold text-gray-800 mb-5">Welcome to MediFlow</h1>

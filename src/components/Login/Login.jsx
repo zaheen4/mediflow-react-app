@@ -50,7 +50,7 @@ const Login = () => {
       <div>
          <div className="hero bg-base-200 min-h-screen">
          
-         <img  src={login_image2} alt="" className="h-[860px] w-[100%] "/>
+         <img  src={login_image2} alt="" className="h-[860px] w-[100%]"/>
             <div className="hero-content flex-col lg:flex-row-reverse">
                <div className="w-[48%] text-center lg:text-left text-white">
                   <h1 className="text-5xl font-bold ">Welcome to MediFlow!!</h1>
@@ -62,8 +62,8 @@ const Login = () => {
                <div className="card  w-full max-w-sm shrink-0 shadow-[0px_0px_30px_rgba(0,0,0,0.3)] rounded-2xl">
                   <form className="card-body " onSubmit={handleLogin}>
                      <div className="form-control text-">
-                        <label className="label"><span className="label-text font-bold text-white">Username</span></label>
-                        <input type="text" placeholder="Enter username" className="input input-bordered"
+                        <label className="label"><span className="label-text font-bold text-white">Username or Email</span></label>
+                        <input type="text" placeholder="Username or Email" className="input input-bordered"
                            value={username} onChange={(e) => setUsername(e.target.value)} required />
                      </div>
                      <div className="form-control">
