@@ -29,7 +29,7 @@ Ensure MySQL is running and accessible.
 ### 1. Clone the Repository
 ```sh
 git clone https://github.com/zaheen4/mediflow-react-app.git
-cd <mediflow-react-app>
+cd mediflow-react-app
 ```
 
 ### 2. Install Frontend Dependencies
