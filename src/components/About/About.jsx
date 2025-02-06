@@ -1,5 +1,4 @@
 import React from "react";
-// import "../../style.css"; // Ensure you have a separate CSS file for styling
 
 
 import zaheen from "../../assets/images/zaheen.jpg";
@@ -40,7 +39,7 @@ const About = () => {
             <div className="text-center my-8">
                <h2 className="section_title text-4xl pb-2">Meet Our Team</h2>
                <p className="section_description text-xl">
-                  We believe treatment should be accessible to everyone, everywhere, regardless of income and class.
+                  We believe medical equipment should be accessible to everyone, everywhere, regardless of income and class.
                </p>
             </div>
             <div className="mx-auto flex justify-center items-center">

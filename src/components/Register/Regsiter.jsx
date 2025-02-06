@@ -18,6 +18,11 @@ const Register = () => {
    const [successMessage, setSuccessMessage] = useState("");
    const navigate = useNavigate();
 
+
+   const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;  // centralized backend link
+   // console.log(API_BASE_URL);
+
+
    const handleChange = (e) => {
       setFormData({
          ...formData,
@@ -32,7 +37,7 @@ const Register = () => {
       setSuccessMessage(""); // Clear previous success message
 
       try {
-         const response = await axios.post("http://localhost:5000/register", formData, {
+         const response = await axios.post(`${API_BASE_URL}/register`, formData, {
             headers: {
                "Content-Type": "application/json",
             },

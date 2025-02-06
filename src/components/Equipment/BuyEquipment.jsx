@@ -9,6 +9,9 @@ const BuyEquipment = () => {
 
    const [equipment, setEquipment] = useState([]);
 
+   const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+   // console.log(API_BASE_URL);
+
    // cart functionality code
    const [cart, setCart] = useState(() => {
       return JSON.parse(localStorage.getItem("cart")) || [];
@@ -19,7 +22,7 @@ const BuyEquipment = () => {
 
 
    useEffect(() => {
-      axios.get('http://localhost:5000/equipment')
+      axios.get(`${API_BASE_URL}/equipment`)
          .then(response => {
             setEquipment(response.data);
          })

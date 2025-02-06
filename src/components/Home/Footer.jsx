@@ -21,10 +21,10 @@ const Footer = () => {
         </aside>
         <nav>
           <div className="grid grid-flow-col gap-10">
-            <a>
+            <a target="_blank">
               <img src={twitter_icon} alt="twitter" />
             </a>
-            <a>
+            <a target="_blank">
               <img src={facebook_icon} alt="facebook" />
             </a>
             <a href="https://github.com/zaheen4/mediflow-react-app" target="_blank">

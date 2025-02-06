@@ -12,10 +12,7 @@ const Navbar = () => {
    const navigate = useNavigate();
    const location = useLocation(); // Get current URL path
 
-
-
-
-
+   
    const handleLogout = () => {
       logout();
       toast.info('Logged out!', {

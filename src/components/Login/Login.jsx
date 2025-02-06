@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useContext } from "react";
-import { AuthContext } from "../Context/AuthContext.jsx"; // Adjust path if needed
+import { AuthContext } from "../Context/AuthContext.jsx"; 
 import { useNavigate } from "react-router-dom";
-import login_image from "../../assets/pawel-czerwinski-3Fr2AJHAOjc-unsplash.jpg"
 import login_image2 from "../../assets/luke-chesser-CxBx_J3yp9g-unsplash.jpg"
 
 const Login = () => {
@@ -12,10 +11,13 @@ const Login = () => {
    const { login } = useContext(AuthContext);
    const navigate = useNavigate();
 
+   const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+   // console.log(API_BASE_URL);
+
    const handleLogin = async (e) => {
       e.preventDefault();
       try {
-         const response = await fetch("http://localhost:5000/login", {
+         const response = await fetch(`${API_BASE_URL}/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, password }),

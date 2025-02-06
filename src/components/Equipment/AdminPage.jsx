@@ -15,6 +15,10 @@ const AdminPage = () => {
    });
 
 
+   const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+   // console.log(API_BASE_URL);
+
+
    const token = JSON.parse(localStorage.getItem("user"))?.token;
 
    useEffect(() => {
@@ -23,7 +27,7 @@ const AdminPage = () => {
 
    const fetchEquipment = async () => {
       try {
-         const response = await axios.get("http://localhost:5000/equipment");
+         const response = await axios.get(`${API_BASE_URL}/equipment`);
          setEquipment(response.data);
       } catch (error) {
          console.error("Error fetching equipment:", error);
@@ -38,7 +42,7 @@ const AdminPage = () => {
       if (!window.confirm("Are you sure you want to delete this equipment?")) return;
 
       try {
-         await axios.delete(`http://localhost:5000/delete-equipment/${id}`, {
+         await axios.delete(`${API_BASE_URL}/delete-equipment/${id}`, {
             headers: { Authorization: `Bearer ${token}` },
          });
          fetchEquipment();
@@ -50,7 +54,7 @@ const AdminPage = () => {
    const handleSaveEdit = async () => {
       try {
          await axios.put(
-            `http://localhost:5000/modify-equipment/${editing.equipment_id}`,
+            `${API_BASE_URL}/modify-equipment/${editing.equipment_id}`,
             editing,
             { headers: { Authorization: `Bearer ${token}` } }
          );
@@ -63,7 +67,7 @@ const AdminPage = () => {
 
    const handleAddEquipment = async () => {
       try {
-         await axios.post("http://localhost:5000/add-equipment", newEquipment, {
+         await axios.post(`${API_BASE_URL}/add-equipment`, newEquipment, {
             headers: { Authorization: `Bearer ${token}` },
          });
          setNewEquipment({ name: "", description: "", price: "", quantity: "" });
