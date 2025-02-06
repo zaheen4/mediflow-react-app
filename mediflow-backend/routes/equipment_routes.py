@@ -11,7 +11,7 @@ equipment_bp = Blueprint('equipment', __name__)
 # Fetch all equipment (public route)
 @equipment_bp.route('/equipment', methods=['GET'])
 def get_equipment():
-    return jsonify(execute_query("SELECT * FROM Equipment"))
+    return jsonify(execute_query("SELECT * FROM equipment"))
 
 
 
@@ -20,7 +20,7 @@ def get_equipment():
 # Fetch details of a specific equipment (public route)
 @equipment_bp.route('/equipment/<int:equipment_id>', methods=['GET'])
 def get_equipment_details(equipment_id):
-    query = "SELECT * FROM Equipment WHERE equipment_id = %s"
+    query = "SELECT * FROM equipment WHERE equipment_id = %s"
     equipment = execute_query(query, (equipment_id,), fetch_one=True)
     if equipment:
         return jsonify(equipment)
@@ -41,7 +41,7 @@ def add_equipment():
         return jsonify({"error": "Access denied"}), 403
 
     data = request.get_json()
-    query = "INSERT INTO Equipment (name, description, price, quantity, image_url) VALUES (%s, %s, %s, %s, %s)"
+    query = "INSERT INTO equipment (name, description, price, quantity, image_url) VALUES (%s, %s, %s, %s, %s)"
     execute_query(query, (data['name'], data['description'], data['price'], data['quantity'], data.get('image_url', None)))
 
     return jsonify({"message": "Equipment added successfully"}), 201
@@ -59,7 +59,7 @@ def modify_equipment(equipment_id):
 
     data = request.get_json()
     query = """
-        UPDATE Equipment
+        UPDATE equipment
         SET name = %s, description = %s, price = %s, quantity = %s, image_url = %s
         WHERE equipment_id = %s
     """
@@ -80,7 +80,7 @@ def delete_equipment(equipment_id):
     if decoded_token["role"] != "Admin":
         return jsonify({"error": "Access denied"}), 403
 
-    query = "DELETE FROM Equipment WHERE equipment_id = %s"
+    query = "DELETE FROM equipment WHERE equipment_id = %s"
     execute_query(query, (equipment_id,))
 
     return jsonify({"message": "Equipment deleted successfully"}), 200

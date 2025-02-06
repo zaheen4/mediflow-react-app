@@ -42,8 +42,8 @@ npm install
 Navigate to the backend folder (`mediflow-backend`), create a virtual environment, and install Python dependencies:
 ```sh
 cd ./mediflow-backend
-python -m venv mediflowenv
-source mediflowenv/bin/activate  # On Windows use: mediflowenv\Scripts\activate
+python -m venv mediflowenv  
+source mediflowenv/bin/activate  # On Windows use: mediflowenv\Scripts\activate 
 pip install -r requirements.txt
 ```
 
@@ -55,7 +55,7 @@ pip install -r requirements.txt
 ### 1. Import the SQL File
 Use the provided SQL file to set up your MySQL database:
 ```sh
-mysql -u root -p < database.sql
+mysql -u root -p < mediflowdb.sql   
 ```
 Enter your MySQL root password when prompted.
 
@@ -65,7 +65,7 @@ Update the `mediflow-backend/db_connection.py` file with your MySQL credentials:
 DB_HOST = "localhost"
 DB_USER = "your_mysql_user"
 DB_PASSWORD = "your_mysql_password"
-DB_NAME = "MediFlowDB"
+DB_NAME = "mediflowdb"
 ```
 
 ### 3. Set Up the `.env` File
@@ -87,8 +87,9 @@ This will replace the existing `SECRET_KEY` in the `.env` file with a new secure
 ## Running the Application
 
 ### 1. Start the Backend
-Navigate to the backend folder `mediflow-backend` and run: (must be in the terminal of activated Python Environment, if not please acticate the environment again)
+Navigate to the backend folder `mediflow-backend` and run: 
 ```sh
+source mediflowenv/bin/activate  # On Windows use: mediflowenv\Scripts\activate 
 python app.py
 ```
 
