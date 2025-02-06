@@ -19,7 +19,7 @@ const Navbar = () => {
    const handleLogout = () => {
       logout();
       toast.info('Logged out!', {
-         position: "top-right",
+         position: "top-center",
          autoClose: 3000,
          hideProgressBar: false,
          closeOnClick: false,

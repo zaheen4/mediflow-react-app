@@ -12,7 +12,7 @@ auth_bp = Blueprint('auth', __name__)
 def register():
     data = request.get_json()
     hashed_password = bcrypt.hashpw(data['password'].encode('utf-8'), bcrypt.gensalt())
-    query = "INSERT INTO Users (username, password, role, email) VALUES (%s, %s, %s, %s)"
+    query = "INSERT INTO users (username, password, role, email) VALUES (%s, %s, %s, %s)"
     execute_query(query, (data['username'], hashed_password.decode('utf-8'), data['role'], data['email']))
     return jsonify({"message": "User registered successfully"}), 201
 
@@ -23,7 +23,7 @@ def register():
 @auth_bp.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
-    query = "SELECT * FROM Users WHERE username = %s OR email = %s"
+    query = "SELECT * FROM users WHERE username = %s OR email = %s"
     user = execute_query(query, (data['username'], data['username']), fetch_one=True)
 
     if user and bcrypt.checkpw(data['password'].encode('utf-8'), user['password'].encode('utf-8')):
